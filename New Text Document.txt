@@ -1,0 +1,78 @@
+//follow the steps in api key
+
+const API_KEY = "AIzaSyBR0z-s1rxrqxKAVVbeuJ2hXRbjLCoUpJ8";
+
+const BASE_URL = "https://www.googleapis.com/youtube/v3"; //will get this from documentaion above
+
+
+
+async function fetchVideo(searchQuery, maxResults) {
+  const response = await fetch(
+    `${BASE_URL}/search?key=${API_KEY}&q=${searchQuery}&maxResults=${maxResults}&part=snippet`
+  );
+  const data = await response.json();
+
+  console.log(data);
+  displaydata(data);
+}
+fetchVideo("icc", 4); //keep it empty for first page result
+//BASE_URL?key="...."&q="...."
+//the 'icc' is passed via q
+//the 25 specifies the number of videos that needs to be fetched (in documentation)
+//int the console you can see items as 25
+//snippet gives you video info thumbnail ,publish time
+
+async function getVideoStats(videoId) {
+  const response = await fetch(
+    `${BASE_URL}/videos?key=${API_KEY}&part=statistics&id=${videoId}`
+  );
+  const data = await response.json();
+  console.log(data);
+  return data;
+}
+
+//the above function is to get the statistics related to the videos
+//mxC3vvj4mmQ this is the video id that needs to be dynamically allocated
+//we will have to call this function again and again for every video
+
+// async function getChannelLogo(channelID) {
+//   const response = await fetch(
+//     `${BASE_URL}/channels?key=${API_KEY}&part=snippet&id=${channelId}`
+//   );
+//   const data = await response.json();
+//   console.log(data);
+// }
+
+// async function getComments(videoId) {
+//   const response = await fetch(
+//     `${BASE_URL}/commentThreads?key=${API_KEY}&videoId=${videoId}&maxResults=25&part=snippet`
+//   );
+//   const data = await response.json();
+//   console.log(data);
+// }
+
+// getComments("Kwu1yIC-ssg");
+
+function displaydata(data) {
+  const videoid = data.items[0].id.videoId;
+  const stats = getVideoStats(videoid);
+  console.log(stats);
+  let channelthumbnail;
+  let views;
+  const channelID = data.items[0].snippet.channelId;
+  const chanelname = data.items[0].snippet.channelTitle;
+  const videoname = data.items[0].snippet.title;
+  const videothubnail = data.items[0].snippet.thumbnails.medium.url;
+  const discription = data.items[0].snippet.description;
+  console.log(videoname);
+  console.log(videoid);
+  console.log(chanelname);
+  console.log(channelID);
+  console.log(videothubnail);
+  // const commentcount = stats.items[0].statistics.commentCount;
+  // const likecount = stats.items[0].statistics.likeCount;
+  // const viewcount = stats.items[0].statistics.viewCount;
+  // console.log(commentcount);
+  // console.log(likecount);
+  // console.log(viewcount);
+}

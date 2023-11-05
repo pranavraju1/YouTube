@@ -1,0 +1,13 @@
+// Search videos API : this consists of a) search String b) API key
+// get video info
+
+//1. Search google console
+//2. create project
+//3. after the project is created select that project go to API and Services
+//4 .click on enable API's and services
+//5. click on youtube Data API v3 and enable
+//6 click on create credentials
+//7. click on public data and next
+//8. copy the api key nad click done
+//AIzaSyBR0z-s1rxrqxKAVVbeuJ2hXRbjLCoUpJ8
+//go to this link https://developers.google.com/youtube/v3/docs/search/list
