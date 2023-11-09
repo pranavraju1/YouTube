@@ -1,0 +1,144 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  font-family: Roboto;
+}
+.bigcontainer{
+  background: #181818;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+.nav{
+  display: flex;
+  background-color: #212121;
+  height: 50px;
+  max-width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+
+}
+.nav1{
+  display: flex;
+  align-items: center;
+}
+.nav1-2{
+  padding: 27px;
+}
+
+.nav2{
+  display: flex;
+  width: 480px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+
+  flex-shrink: 0;
+  /* outline: 3px solid orange; */
+}
+.nav2-1{
+  display:flex;
+  flex-direction: column;
+  border: 1px solid #303030;
+  border-radius: 2px 0px 0px 2px;
+}
+.nav2-2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 43px;
+  border-radius: 0px 2px 2px 0px;
+  border: 1px solid var(--border-color, #303030);
+  background: var(--border-color, #303030);
+}
+
+.serchbar{
+  width: 362px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 2px 0px 0px 2px;
+  background: #121212;
+  border: solid;
+  padding-left: 5px;
+  color: white;
+  /* font-weight: bold; */
+  border: 1px solid var(--border-color, #303030);
+}
+
+.nav2-3{  
+  margin-inline-start: 5px;/*use this to givr margin inside a div  */
+  background-color: black;
+  height: 43px;
+  width: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+}
+
+.nav3{
+  display: flex;
+  width: 150px;
+  height: 40px;
+  align-items: center;
+  /* justify-content: center; */
+  /* align-items: flex-start; */
+  gap: 20px;
+  /* flex-shrink: 0; */
+}
+
+
+.container{
+  /* border: 2px solid orange; */
+  max-width: 100%;
+  max-height: 100%;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  /* gap: 16px; */
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-left: 162px;
+  padding-right: 164px;
+}
+
+.left{
+  display: flex;
+  width: 664px;
+  /* height: auto; */
+  padding: 24px 0px 0px 24px;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  flex-shrink: 0;
+  outline: 2px solid pink;
+  /* overflow: hidden; */
+} 
+.right{
+  display: flex;
+  width: 426px;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+.videoplayer{
+  outline: 2px solid red;
+  width: 100%;
+  height: 360px;
+}
+
+.videodetails{
+  display: flex;
+  padding: 20px 0px 8px 0px;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  outline: 2px solid aqua;
+}
