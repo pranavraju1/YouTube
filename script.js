@@ -12,7 +12,7 @@ if (a) {
   searchitem = a;
 }
 
-for (let k = 0; k < 2; k++) {
+for (let k = 0; k < 1; k++) {
   const right2_row = document.createElement("div");
   right2_row.className = "right2-row";
   for (let i = 0; i <= 3; i++) {
@@ -65,6 +65,7 @@ for (let k = 0; k < 2; k++) {
         // displaydetails();
         startBuilding();
         createSub();
+        elementclick();
       }
       function displaydetails() {
         console.log(videoname);
@@ -109,6 +110,12 @@ for (let k = 0; k < 2; k++) {
         right2_info_2.innerText = chanelname + " " + viewCount;
         right2_info.appendChild(right2_info_2);
         right2_details.appendChild(right2_info);
+        ///////
+        const right2_info_3 = document.createElement("div");
+        right2_info_3.innerHTML = videoId;
+        // right2_info_3.style.display = "none";
+        right2_row_elements.appendChild(right2_info_3);
+        /////////
 
         right2_row_elements.appendChild(right2_details);
         right2_row.appendChild(right2_row_elements);
@@ -134,8 +141,21 @@ for (let k = 0; k < 2; k++) {
         div.appendChild(left1_1);
         subscription.appendChild(div);
       }
+
+      function elementclick() {
+        const right2_row_elements = document.getElementsByClassName(
+          "right2-row-elements"
+        );
+        for (let i = 0; i < right2_row_elements.length; i++) {
+          right2_row_elements[i].addEventListener("click", () => {
+            let str = right2_row_elements[i].children[1].innerText;
+            sessionStorage.setItem("videoId", str);
+            window.location.href = "video.html";
+          });
+        }
+      }
     }
-    fetchVideo(searchitem, 8); //keep it empty for first page result
+    fetchVideo(searchitem, 4); //keep it empty for first page result
     //BASE_URL?key="...."&q="...."
     //the 'icc' is passed via q
     //the 25 specifies the number of videos that needs to be fetched (in documentation)
@@ -173,4 +193,14 @@ searchbtn.addEventListener("click", (event) => {
 //     const data3 = await response.json();
 //     console.log(data3);
 //   }
+// }
+
+// const right2_row_elements = document.getElementsByClassName(
+//   "right2-row-elements"
+// );
+// for (let i = 0; i < right2_row_elements.length; i++) {
+//   right2_row_elements[i].addEventListener("click", () => {
+//     let str = right2_row_elements[i].children[1].innerText;
+//     console.log(str);
+//   });
 // }
